@@ -16,7 +16,33 @@
     * Sample Output (with our test case):
         ```shell
         ./program1
-        TBD
+        TEST #1: Run AntFarm Simulation
+        	=============== Turn #0 ==================
+        The hill currently has:
+        	Food:0
+        	Ants: 3
+        The hill has been attacked 0 times.
+        	Successfully defended: 0
+        	Failed to Defend: 0
+        Ant #2 has run into a rival ant
+        Ant #2 	 loses the fight and dies
+        	=============== Turn #1 ==================
+        The hill currently has:
+        	Food:1
+        	Ants: 2
+        The hill has been attacked 0 times.
+        	Successfully defended: 0
+        	Failed to Defend: 0
+        			...time passes
+        	=============== Turn #71 ==================
+        The hill currently has:
+        	Food:3
+        	Ants: 0
+        The hill has been attacked 12 times.
+        	Successfully defended: 7
+        	Failed to Defend: 5
+        =========================PASS========================
+        	Don\'t forget to run with Valgrind and commit to Github!
         ```
 
 ### Grading Rubric
@@ -50,7 +76,7 @@ __Total: 60 points__
         * Each Ant, if (and only if) it does not get into a fight, has some percentage chance of finding food [2 pts]
             * If food is found, it is added to the hill.
     * The state of the AntHill is written out to a log file, ‘anthill.log’, after the completion of each turn. [5 pts]__
-* **Part C__:**
+* **Part C:**
     * If memory error, memory leak, no 'checkmem' target [-5 points]
     * Does not follow requested project structure, makefile, and submission format [-3 points]
     * Submission includes .o files or binary [-1 point]
@@ -70,10 +96,9 @@ In Program 1, you will expand your anthill to create an ant farm where ants try 
 * a simple singly linked list container
 * C++ heap memory management (strategic and extensive use of new and delete)
 * deep copies of stored data, including in copy constructors and assignment operators
-* operator implementation and overloading (including assignment operators, unary operators, binary operators, and friend functions)
-* C++ Inheritance and Polymorphism
+* operator implementation and overloading (including assignment operators, unary operators, binary operators)
 
-:caution: __This program will be difficult for some of you so please begin early and work on it consistently. You can do it and we will help! When you finish successfully, you will really understand linked lists, operator overloading, deep vs. shallow copy, and more, guaranteed!__ :caution:
+:warning: __This program will be difficult for some of you so please begin early and work on it consistently. You can do it and we will help! When you finish successfully, you will really understand linked lists, operator overloading, deep vs. shallow copy, and more, guaranteed!__ :warning:
 
 
 
@@ -83,9 +108,9 @@ In Program 1, you will expand your anthill to create an ant farm where ants try 
 
 For part A you are going to write a singly linked list library for Ants. This means you will need a LinkedList.h and a LinkedList.cpp. The design of your linked list is largely up to you, but there are a few restrictions you must adhere to:
 * All instance variables must be private and encapsulated
-   * This means that everything must be accomplished through methods and you cannot return a pointer to anything inside the class (head, current, etc)
-* It must be a singly linked list
-   * No pointer to the tail of the list or pointers to previous nodes
+    * This means that everything must be accomplished through methods and you cannot return a pointer to anything inside the class (head, current, etc)
+* It must be a __singly__ linked list
+    * No pointer to the tail of the list or pointers to previous nodes
 * The Node class must be in LinkedList.h, not a separate file
 * The Node class cannot have a default constructor
 * Your list class must contain the following:
@@ -94,16 +119,16 @@ For part A you are going to write a singly linked list library for Ants. This me
    * A destructor
    * All CRUD operations
       * How you implement these CRUD operations is up to you, but again, you must not expose the internals of the list. This means you never return a pointer to any Node from any of your public methods.
-         * You may return a pointer or reference to the data in a Node.
+         * _You may return a pointer or reference to the data in a Node._
       * You also cannot ‘index’ into the list with the method. No indexInsert(), indexRead(), etc.
-      * However, you will need to implement a find that finds a specific Ant and delete which deletes a specific Ant. How you do that is up to you.
+      * However, you will need to implement a find and delete that finds or deletes, respectively, a specific Ant. How you do that is up to you.
    * The following overloaded operators
-      * a << b
-         * Should take data b and add it to the linked list a
-I strongly suggest you test your Linked List rigorously before moving on to the next part. Write a short main that runs several tests to ensure all methods are working.
+      * `a << b`
+         * Should take data `b` and add it to the linked list `a`
+__I strongly suggest you test your Linked List rigorously before moving on to the next part. Write a short main that runs several tests to ensure all methods are working.__
 
 
----The TA will look over your code in next week’s lab. You must have your LinkedList implemented by then to get credit for that lab.---
+_The TA will look over your code in next week’s lab. You must have your LinkedList implemented by then to get credit for that lab._
 
 
 ## Part B: Create Your AntFarm Program
@@ -111,32 +136,35 @@ I strongly suggest you test your Linked List rigorously before moving on to the 
 Your AntFarm will consist of a single AntHill. Your ants will wander the (metaphorical) AntFarm encountering food or rival Ants.
 Functional Requirements:
 * Your program should write out a summary of the AntFarm after every turn to a log file call ‘anthill.log’.
-   * A full turn is defined as
-      * The Anthill produces all of the ants it can
-      * The Anthill may be attacked
-      * Every Ant has moved
-* Anthill requirements
-   * AntHills start with 3 Ants (no food requirement)
-   * Anthills can spawn any number of ants depending on food. Each time an Ant is spawned it is appended to an internal linked list that keeps track of the Ants.
-      * You cannot spawn more ants unless you have enough food
-         * 1 piece of food allows you to create 1 ant
-         * The food is consumed when the ant is created
-* When an ant is created, it will leave the anthill and randomly wander the Ant Farm in search of food or battle.
-   * Each ant moves 1 unit in the Ant Farm per turn
-      * Movement should be random and should stay within a grid.
-         * In other words, the X and Y value should never exceed the grid.
-      * As the Ants wander the AntFarm, there are 3 possible events:
-         * For each full turn, there is a slight chance (maybe ⅕) that your AntHill will be attacked.
+    * A full turn is defined as
+        * The Anthill produces all of the ants it can
+        * The Anthill may be attacked
+        * Every Ant has moved
+
+### Anthill requirements
+
+* AntHills start with 3 Ants (no food requirement)
+* Anthills can spawn any number of ants depending on food. Each time an Ant is spawned it is appended to an internal linked list that keeps track of the Ants.
+    * You cannot spawn more ants unless you have enough food
+        * 1 piece of food allows you to create 1 ant
+            * The food is consumed when the ant is created
+* When an ant is created, it will leave the anthill and randomly wander the Ant Farm in search of food or battle.  
+    * Each ant moves 1 unit in the Ant Farm per turn
+    * Movement should be random and should stay within a grid.
+        * In other words, the X and Y value should never exceed the grid.
+    * As the Ants wander the AntFarm, there are 3 possible events:
+        * For each full turn, there is a slight chance (maybe ⅕) that your AntHill will be attacked.
             * If you are attacked you should generate a random value between 1-and your total number of ants to determine how many Ants are attacking you.
             * Any Ants less than half the size of the grid in any direction help ‘defend’.
-               * If you have more Ants defending than attacking, you successfully fend off the attack.
-               * Otherwise, all defending Ants are removed and all food is lost.
-      * An individual ant has a chance (again, around ⅕) during their move of encountering a single rival Ant. If they do, they must fight.
-         * Design a fight method that randomly determines if they have won or lost. If they lose, they are killed and removed from the AntHill.
-      * If the Ant does not encounter a rival Ant, the Ant has a chance (⅕ worked well for me again) to find food. If the attempt to find food is successful, it is immediately added to the Ant’s AntHill.
-* Ant Requirements
-   * You must implement a copy constructor for the Ant class.
-   * You must have a fight method that returns if the Ant has won the random encounter with a rival Ant
+                * If you have more Ants defending than attacking, you successfully fend off the attack.
+                * Otherwise, all defending Ants are removed and all food is lost.
+    * An individual ant has a chance (again, around ⅕) during their move of encountering a single rival Ant. If they do, they must fight.
+        * Design a fight method that randomly determines if they have won or lost. If they lose, they are killed and removed from the AntHill.
+    * If the Ant does not encounter a rival Ant, the Ant has a chance (⅕ worked well for me again) to find food. If the attempt to find food is successful, it is immediately added to the Ant’s AntHill.
+
+### Ant Requirements
+* You must implement a copy constructor for the Ant class.
+* You must have a fight method that returns if the Ant has won the random encounter with a rival Ant
 * The simulation ends when you have reach 0 or 100 ants in the AntHill.
 * You should play around with the various literal values, such as grid size, odds for being attacked, the fight, or finding food to see what odds produce the best results. This means you should write your code so these values are easy to change.
 
