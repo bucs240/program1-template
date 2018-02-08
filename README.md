@@ -76,9 +76,11 @@ __Total: 60 points__
         * Each Ant, if (and only if) it does not get into a fight, has some percentage chance of finding food [2 pts]
             * If food is found, it is added to the hill.
     * The state of the AntHill is written out to a log file, ‘anthill.log’, after the completion of each turn. [5 pts]
+* EXTRA CREDIT [Up to 6 points]
+    * Extra Credit approved and described in README
 * **Part C:**
     * If memory error, memory leak, no 'checkmem' target [-5 points]
-    * Does not follow requested project structure, makefile, and submission format [-3 points]
+    * Does not follow requested project structure, makefile, README, and submission format [-3 points]
     * Submission includes .o files or binary [-1 point]
     * Does not follow [Style guidelines](https://drive.google.com/open?id=1a5I7XhhCDRHoS8LUfILu3y2la4wW8HHh4olO30YvMVk) [-3 points]
 
