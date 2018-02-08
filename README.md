@@ -59,7 +59,7 @@ __Total: 60 points__
 * __LinkedList.h [23 points]__
     * Node Class contains an Ant object or a pointer to an Ant object [2 pts]
     * Node does not have a default constructor [3 pt]
-    * LinkedList class has a pointer to the head of the list [1 pt]
+    * LinkedList class has a pointer to the head of the list, and is a singly linked list [1 pt]
     * LinkedList class contains default and copy constructor, as well as destructor [4 pts]
     * Linked List does not return a pointer to a node [5 pts]
     * The << operator is overloaded [3 pts]
@@ -75,7 +75,7 @@ __Total: 60 points__
             * Ant is removed from the hill if it loses the fight.
         * Each Ant, if (and only if) it does not get into a fight, has some percentage chance of finding food [2 pts]
             * If food is found, it is added to the hill.
-    * The state of the AntHill is written out to a log file, ‘anthill.log’, after the completion of each turn. [5 pts]__
+    * The state of the AntHill is written out to a log file, ‘anthill.log’, after the completion of each turn. [5 pts]
 * **Part C:**
     * If memory error, memory leak, no 'checkmem' target [-5 points]
     * Does not follow requested project structure, makefile, and submission format [-3 points]
@@ -95,7 +95,7 @@ You may research online for additional resources; however, you may not use code 
 In Program 1, you will expand your anthill to create an ant farm where ants try to survive and build their anthill. You will begin with an anthill, and the ants will wander the Antfarm in search of food and rival ants. Program 1 will provide you experience with:
 * a simple singly linked list container
 * C++ heap memory management (strategic and extensive use of new and delete)
-* deep copies of stored data, including in copy constructors and assignment operators
+* deep copies of stored data, including copy constructors and assignment operators
 * operator implementation and overloading (including assignment operators, unary operators, binary operators)
 
 :warning: __This program will be difficult for some of you so please begin early and work on it consistently. You can do it and we will help! When you finish successfully, you will really understand linked lists, operator overloading, deep vs. shallow copy, and more, guaranteed!__ :warning:
@@ -118,13 +118,13 @@ For part A you are going to write a singly linked list library for Ants. This me
    * A copy constructor
    * A destructor
    * All CRUD operations
-      * How you implement these CRUD operations is up to you, but again, you must not expose the internals of the list. This means you never return a pointer to any Node from any of your public methods.
-         * _You may return a pointer or reference to the data in a Node._
-      * You also cannot ‘index’ into the list with the method. No indexInsert(), indexRead(), etc.
-      * However, you will need to implement a find and delete that finds or deletes, respectively, a specific Ant. How you do that is up to you.
+       * How you implement these CRUD operations is up to you, but again, you must not expose the internals of the list. This means you never return a pointer to any Node from any of your public methods.
+           * _You may return a pointer or reference to the data in a Node._
+       * You also cannot ‘index’ into the list with the method. No indexInsert(), indexRead(), etc.
+           * However, you will need to implement a find and delete that finds or deletes, respectively, a specific Ant. How you do that is up to you.
    * The following overloaded operators
-      * `a << b`
-         * Should take data `b` and add it to the linked list `a`
+       * `a << b`
+           * Should take data `b` and add it to the linked list `a`
 __I strongly suggest you test your Linked List rigorously before moving on to the next part. Write a short main that runs several tests to ensure all methods are working.__
 
 
@@ -168,8 +168,39 @@ Functional Requirements:
 * The simulation ends when you have reach 0 or 100 ants in the AntHill.
 * You should play around with the various literal values, such as grid size, odds for being attacked, the fight, or finding food to see what odds produce the best results. This means you should write your code so these values are easy to change.
 
+### Additional Options or Extra Credit
+
+You may alter the program assignment any way you like as long as it does not:
+
+* Simplify the Requirements
+* Alter the basic intent of the assignment
+
+You must discuss any changes to the assignment with me or the TA's, and recieve
+written approval for your changes. Include the written approval in your R=EADME (described below).
+
+You may also propose an extra credit option up to an additional 10%; however, any proposed extra credit, must follow the following guidelines:
+* It must be a significant addition to the assignment
+* It must not simplify or otherwise alter the intent of the assignment
+* You must send a written request and full description for the extra credit to me before the due Date
+    * You must also receive written approval from me before the due date, so plan accordingly.
 
 ## Part C : Code Organization and Submission
+When you are done, you must update the README.md file in your repo to include a description of your design. You should describe the following in your README:
+* Design Changes and Extra Credit
+    * Describe any design changes you made
+    * Describe any Extra Credit
+* Ants
+    * The algorithm you used to calculate the winner of a fight
+* Anthill
+    * The algorithm you used to calculate if the anthill is attacked
+    * The algorithm used for defending the anthill
+* Linked List
+    * The basic design of your linked List:
+        * How you handled iteration
+        * Whether you stored pointers or actual objects
+        * Any other relevant information
+
+
 * Required code organization:
    * program1.cpp
    * Ant.h/.cpp
@@ -177,6 +208,7 @@ Functional Requirements:
    * LinkedList.h/.cpp
    * anthill.log
    * makefile
+   * README.md
 
 Below is just a reminder of the commands you should use to submit your code. If you cannot remember the exact process, please review lab 1.
 
