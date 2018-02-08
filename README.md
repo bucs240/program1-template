@@ -76,7 +76,7 @@ __Total: 60 points__
         * Each Ant, if (and only if) it does not get into a fight, has some percentage chance of finding food [2 pts]
             * If food is found, it is added to the hill.
     * The state of the AntHill is written out to a log file, ‘anthill.log’, after the completion of each turn. [5 pts]
-* EXTRA CREDIT [Up to 6 points]
+* __EXTRA CREDIT [Up to 6 points]__
     * Extra Credit approved and described in README
 * **Part C:**
     * If memory error, memory leak, no 'checkmem' target [-5 points]
@@ -178,12 +178,12 @@ You may alter the program assignment any way you like as long as it does not:
 * Alter the basic intent of the assignment
 
 You must discuss any changes to the assignment with me or the TA's, and recieve
-written approval for your changes. Include the written approval in your R=EADME (described below).
+written approval for your changes. Include the written approval in your README (described below).
 
-You may also propose an extra credit option up to an additional 10%; however, any proposed extra credit, must follow the following guidelines:
-* It must be a significant addition to the assignment
+You may also propose an __extra credit__ option up to an additional 10%; however, any proposed extra credit, must adhere to the following guidelines:
+* It must be a *significant* addition to the assignment
 * It must not simplify or otherwise alter the intent of the assignment
-* You must send a written request and full description for the extra credit to me before the due Date
+* You must send a written request and full description for the proposed extra credit to me before the due date
     * You must also receive written approval from me before the due date, so plan accordingly.
 
 ## Part C : Code Organization and Submission
@@ -201,6 +201,10 @@ When you are done, you must update the README.md file in your repo to include a 
         * How you handled iteration
         * Whether you stored pointers or actual objects
         * Any other relevant information
+* References
+    * List any outside sources you used in designing your program
+* Misc Notes
+    * Any relevent information your want the grader to know
 
 
 * Required code organization:
