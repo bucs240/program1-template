@@ -188,24 +188,26 @@ You may also propose an __extra credit__ option up to an additional 10%; however
 
 ## Part C : Code Organization and Submission
 When you are done, you must update the README.md file in your repo to include a description of your design. You should describe the following in your README:
-* Design Changes and Extra Credit
+
+* __Design Changes and Extra Credit__
     * Describe any design changes you made
     * Describe any Extra Credit
-* Ants
+* __Ants__
     * The algorithm you used to calculate the winner of a fight
-* Anthill
+* __Anthill__
     * The algorithm you used to calculate if the anthill is attacked
     * The algorithm used for defending the anthill
-* Linked List
+* __Linked List__
     * The basic design of your linked List:
         * How you handled iteration
         * Whether you stored pointers or actual objects
         * Any other relevant information
-* References
+* __References__
     * List any outside sources you used in designing your program
-* Misc Notes
-    * Any relevent information your want the grader to know
+* __Misc Notes__
+    * Any relevant information your want the grader to know
 
+***
 
 * Required code organization:
    * program1.cpp
