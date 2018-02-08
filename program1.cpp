@@ -19,7 +19,7 @@ int main(){
 	}
 	delete farm;
 	cerr << "\n\t========================PASS========================\n" << endl;
-	cerr << "\n\tDon't forget to run with Valgrind and submit to Blackboard!\n" << endl;
+	cerr << "\n\tDon't forget to run with Valgrind and commit to Github!\n" << endl;
 
 	return 0;
 }
