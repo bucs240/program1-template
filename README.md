@@ -1,238 +1,226 @@
-#### CS 240 - Spring 2018
-# Program 1 - AntFarm
-## Due Date: 11:59 p.m., February 21st, 2018
+#### CS 240 - Spring 2019
+### PROGRAM 1 README FILE
+
+## KNOWN BUGS AND INCOMPLETE PARTS:
+- What parts of the program you were not able to complete
+
+## REFERENCES:
+- List any outside resources used
+
+## MISCELLANEOUS COMMENTS:
+- Anything you would like the grader to know
+
+***
+### Assignment Description
+***
+# Program 1 - Building Solar Systems
+## Due Date: 11:59 p.m., February 27th, 2019
 
 *All programs will be tested on the machines in the Q22 lab. If your code does not run on the system in this lab, it is considered non-functioning EVEN IF IT RUNS ON YOUR PERSONAL COMPUTER. Always check that your code runs on the lab machines before submitting.*
 
-### Provided Files and Expected Output
-* _Files_
-    * program1.cpp
-* _Expected Command > Output_
-    * Test Commands we will run
-        * make
-        * make run
-        * make checkmem
-        * make clean
-    * Sample Output (with our test case):
-        ```shell
-        ./program1
-        TEST #1: Run AntFarm Simulation
-        	=============== Turn #0 ==================
-        The hill currently has:
-        	Food:0
-        	Ants: 3
-        The hill has been attacked 0 times.
-        	Successfully defended: 0
-        	Failed to Defend: 0
-        Ant #2 has run into a rival ant
-        Ant #2 	 loses the fight and dies
-        	=============== Turn #1 ==================
-        The hill currently has:
-        	Food:1
-        	Ants: 2
-        The hill has been attacked 0 times.
-        	Successfully defended: 0
-        	Failed to Defend: 0
-        			...time passes
-        	=============== Turn #71 ==================
-        The hill currently has:
-        	Food:3
-        	Ants: 0
-        The hill has been attacked 12 times.
-        	Successfully defended: 7
-        	Failed to Defend: 5
-        =========================PASS========================
-        	Don\'t forget to run with Valgrind and commit to Github!
-        ```
+### Driver Code and Test Files
+
+* program1.cpp
+    * include the driver code with your submission, but do not alter it, except where specified by comments
 
 ### Grading Rubric
-__Total: 60 points__
-* __Program [5 points]__
-    * Compiles [2 pts]
-    * Runs with driver without error [3 pts]
-* __Ant.h [11 points]__
-    * All instance variables (except Node class) are private [2 pts]
-    * fight() method returns if the ant has won [3 pts]
-    * move() method must move 1 random unit [2 pts]
-    * ants must stay in a defined grid [2 pt]
-    * Has a copy constructor [2 pt]
-* __LinkedList.h [23 points]__
-    * Node Class contains an Ant object or a pointer to an Ant object [2 pts]
-    * Node does not have a default constructor [3 pt]
-    * LinkedList class has a pointer to the head of the list, and is a singly linked list [1 pt]
-    * LinkedList class contains default and copy constructor, as well as destructor [4 pts]
-    * Linked List does not return a pointer to a node [5 pts]
-    * The << operator is overloaded [3 pts]
-    * All CRUD operations are supported [5 pts]
-* __AntHill.h [21 points]__
-    * Ants are stored in a linked list [5 pts]
-    * Correctly keeps track of current food amount [2 pts]
-    * Each turn the following should happen
-        * adds ants to the hill, removing 1 food for each new ant [2 pts]
-        * Has some percentage chance of being attacked. Attacks can result in success or failure [3 pts]
-            * If failure, all food is removed as well as all ants within half the size of the grid
-        * Each Ant has some percentage chance of getting into a fight [2 pts]
-            * Ant is removed from the hill if it loses the fight.
-        * Each Ant, if (and only if) it does not get into a fight, has some percentage chance of finding food [2 pts]
-            * If food is found, it is added to the hill.
-    * The state of the AntHill is written out to a log file, ‘anthill.log’, after the completion of each turn. [5 pts]
-* __EXTRA CREDIT [Up to 6 points]__
-    * Extra Credit approved and described in README
-* **Part C:**
-    * If memory error, memory leak, no 'checkmem' target [-5 points]
-    * Does not follow requested project structure, makefile, README, and submission format [-3 points]
-    * Submission includes .o files or binary [-1 point]
-    * Does not follow [Style guidelines](https://drive.google.com/open?id=1a5I7XhhCDRHoS8LUfILu3y2la4wW8HHh4olO30YvMVk) [-3 points]
+
+**_TOTAL: 45 points_**
+
+* **Part A** (10 points): Vectors
+    * [2 pts] Test 1 Passed: creates a vector with properly initialized values
+    * [2 pts] Test 2-3 Passed: inserting into the vector passes all tests
+    * [2 pts] Test 4-6 Passed: reading from vector passes all tests
+    * [2 pts] Test 7 Passed: removing from vector passes tests
+    * [2 pts] Test 8-9 Passed:  deleting vector frees memory
+* **Part B** (10 points): Lists
+    * [2 pts] Test 10 Passed: creates a list with properly initialized values
+    * [2 pts] Test 11 Passed: inserting into list at index passes test
+    * [2 pts] Test 12 Passed: reading from list at index passes test
+    * [4 pts] Test 13 Passed: removing and deleting from list at index passes test
+* **Part C** (20 points): Stars
+    * [12 pts] Test 14 Passed: create, read, and remove from Starvector and Starlist without error
+    * [8 pts] Test 15 Passed: delete Starvector and Starlist without error
+* **Part D** (5 points): Profile
+   * [5 pts] completes profiling without error
+* **Style Guidelines and Memory Leaks**
+    * You will lose significant points for the following:
+        * Memory leak or error detected in valgrind  (-10 points)
+        * Repository includes .o files or binary [-1 point]
+        * Does not follow [Style guidelines](https://drive.google.com/open?id=1a5I7XhhCDRHoS8LUfILu3y2la4wW8HHh4olO30YvMVk)[-3 points]
+        * Your submission will not be accepted if:
+            * Does not follow requested project structure and submission format
+            * Does not compile
 
 ### Guidelines
 
-This is an individual lab assignment. You must do the vast majority of the work on your own. It is permissible to consult with classmates to ask general questions about the assignment, to help discover and fix specific bugs, and to talk about high level approaches in general terms. It is not permissible to give or receive answers or solution details from fellow students.
+This is a pair programming assignment. You and a partner can divide up the work. Although both of you may not work on all parts of the program you should understand and be able to fully explain every portion of the code. Outside of your team, it is permissible to consult with classmates to ask general questions about the assignment, to help discover and fix specific bugs, and to talk about high level approaches in general terms. It is not permissible to give or receive answers or solution details from fellow students.
 
-You may research online for additional resources; however, you may not use code that was written specifically *to* solve the problem you have been given, and you may not have anyone else help you write the code or solve the problem. You may use code snippets found online, providing that they are appropriately and clearly cited, within your submitted code.
+You may research online for additional resources; however, you may not use code that was written specifically to solve the problem you have been given, and you may not have anyone else help you or your partner write the code or solve the problem. You may use code snippets found online, providing that they are appropriately and clearly cited, within your submitted code.
 
-*By submitting this assignment, you agree that you have followed the above guidelines regarding collaboration and research.*
+If you or your partner are found to have plagiarized any part of the assignment, both will receive a 0 and be reported.
 
-***
+__In this program, you will learn to__:
 
-In Program 1, you will expand your anthill to create an ant farm where ants try to survive and build their anthill. You will begin with an anthill, and the ants will wander the Antfarm in search of food and rival ants. Program 1 will provide you experience with:
-* a simple singly linked list container
-* C++ heap memory management (strategic and extensive use of new and delete)
-* deep copies of stored data, including copy constructors and assignment operators
-* operator implementation and overloading (including assignment operators, unary operators, binary operators)
+* Work with sequential and secondary data structures
 
-:warning: __This program will be difficult for some of you so please begin early and work on it consistently. You can do it and we will help! When you finish successfully, you will really understand linked lists, operator overloading, deep vs. shallow copy, and more, guaranteed!__ :warning:
+For the first program you and partner are going to build both a dynamic array (vector) and a linked list. Each data structure will be tested to ensure the validity of its operations. Once that is complete and you know your data structures are working, we are going to use them as internal data structures for our Star class. Both versions of the Star class will be evaluated to see which provides better performance.
 
+You will reuse your Planet class from lab 3 with no changes.
 
+:warning: *For all Data Structures, you may (and probably should) add additional functions, methods, and attributes, but what follows is the required minimum interface*
 
-#### (Parts A must be completed in lab)
-
-## Part A: Linked List
-
-For part A you are going to write a singly linked list library for Ants. This means you will need a LinkedList.h and a LinkedList.cpp. The design of your linked list is largely up to you, but there are a few restrictions you must adhere to:
-* All instance variables must be private and encapsulated
-    * This means that everything must be accomplished through methods and you cannot return a pointer to anything inside the class (head, current, etc)
-* It must be a __singly__ linked list
-    * No pointer to the tail of the list or pointers to previous nodes
-* The Node class must be in LinkedList.h, not a separate file
-* The Node class cannot have a default constructor
-* Your list class must contain the following:
-   * A default constructor
-   * A copy constructor
-   * A destructor
-   * All CRUD operations
-       * How you implement these CRUD operations is up to you, but again, you must not expose the internals of the list. This means you never return a pointer to any Node from any of your public methods.
-           * _You may return a pointer or reference to the data in a Node._
-       * You also cannot ‘index’ into the list with the method. No indexInsert(), indexRead(), etc.
-           * However, you will need to implement a find and delete that finds or deletes, respectively, a specific Ant. How you do that is up to you.
-   * The following overloaded operators
-       * `a << b`
-           * Should take data `b` and add it to the linked list `a`
-__I strongly suggest you test your Linked List rigorously before moving on to the next part. Write a short main that runs several tests to ensure all methods are working.__
-
-
-_The TA will look over your code in next week’s lab. You must have your LinkedList implemented by then to get credit for that lab._
-
-
-## Part B: Create Your AntFarm Program
-
-Your AntFarm will consist of a single AntHill. Your ants will wander the (metaphorical) AntFarm encountering food or rival Ants.
-Functional Requirements:
-* Your program should write out a summary of the AntFarm after every turn to a log file call ‘anthill.log’.
-    * A full turn is defined as
-        * The Anthill produces all of the ants it can
-        * The Anthill may be attacked
-        * Every Ant has moved
-
-### Anthill requirements
-
-* AntHills start with 3 Ants (no food requirement)
-* Anthills can spawn any number of ants depending on food. Each time an Ant is spawned it is appended to an internal linked list that keeps track of the Ants.
-    * You cannot spawn more ants unless you have enough food
-        * 1 piece of food allows you to create 1 ant
-            * The food is consumed when the ant is created
-* When an ant is created, it will leave the anthill and randomly wander the Ant Farm in search of food or battle.  
-    * Each ant moves 1 unit in the Ant Farm per turn
-    * Movement should be random and should stay within a grid.
-        * In other words, the X and Y value should never exceed the grid.
-    * As the Ants wander the AntFarm, there are 3 possible events:
-        * For each full turn, there is a slight chance (maybe ⅕) that your AntHill will be attacked.
-            * If you are attacked you should generate a random value between 1-and your total number of ants to determine how many Ants are attacking you.
-            * Any Ants less than half the size of the grid in any direction help ‘defend’.
-                * If you have more Ants defending than attacking, you successfully fend off the attack.
-                * Otherwise, all defending Ants are removed and all food is lost.
-    * An individual ant has a chance (again, around ⅕) during their move of encountering a single rival Ant. If they do, they must fight.
-        * Design a fight method that randomly determines if they have won or lost. If they lose, they are killed and removed from the AntHill.
-    * If the Ant does not encounter a rival Ant, the Ant has a chance (⅕ worked well for me again) to find food. If the attempt to find food is successful, it is immediately added to the Ant’s AntHill.
-
-### Ant Requirements
-* You must implement a copy constructor for the Ant class.
-* You must have a fight method that returns if the Ant has won the random encounter with a rival Ant
-* The simulation ends when you have reach 0 or 100 ants in the AntHill.
-* You should play around with the various literal values, such as grid size, odds for being attacked, the fight, or finding food to see what odds produce the best results. This means you should write your code so these values are easy to change.
-
-### Additional Options or Extra Credit
-
-You may alter the program assignment any way you like as long as it does not:
-
-* Simplify the Requirements
-* Alter the basic intent of the assignment
-
-You must discuss any changes to the assignment with me or the TA's, and recieve
-written approval for your changes. Include the written approval in your README (described below).
-
-You may also propose an __extra credit__ option up to an additional 10%; however, any proposed extra credit, must adhere to the following guidelines:
-* It must be a *significant* addition to the assignment
-* It must not simplify or otherwise alter the intent of the assignment
-* You must send a written request and full description for the proposed extra credit to me before the due date
-    * You must also receive written approval from me before the due date, so plan accordingly.
-
-## Part C : Code Organization and Submission
-When you are done, you must update the README.md file in your repo to include a description of your design. You should describe the following in your README:
-
-* __Design Changes and Extra Credit__
-    * Describe any design changes you made
-    * Describe any Extra Credit
-* __Ants__
-    * The algorithm you used to calculate the winner of a fight
-* __Anthill__
-    * The algorithm you used to calculate if the anthill is attacked
-    * The algorithm used for defending the anthill
-* __Linked List__
-    * The basic design of your linked List:
-        * How you handled iteration
-        * Whether you stored pointers or actual objects
-        * Any other relevant information
-* __References__
-    * List any outside sources you used in designing your program
-* __Misc Notes__
-    * Any relevant information your want the grader to know
+:no_entry_sign: You may __not__ use the STL library for this program.
 
 ***
+You will need to make a small change to your planet class constructor.
 
-* Required code organization:
-   * program1.cpp
-   * Ant.h/.cpp
-   * AntHill.h/.cpp
-   * LinkedList.h/.cpp
-   * anthill.log
-   * makefile
-   * README.md
+#### Planet
+* `Planet(int distance)`
+    * You do not need to pass an ID. The ID will now be the address of the object.
+* `long int getID()`
+    * The return type of the getID() method will need to be changed to a long to hold the address (8 bytes)
 
-Below is just a reminder of the commands you should use to submit your code. If you cannot remember the exact process, please review lab 1.
+:warning: You will need to update your `Star` class method `addPlanet` accordingly.
+***    
 
-*These commands all presume that your current working directory is within the directory tracked by `git`.*
+## Part A: Vectors
+You must break up your code into Vector.h and Vector.cpp according to the conventions we have discussed in class.
 
-```git
-git add Anthill.h
-git add Anthill.cpp
-git commit -a -m "first commit"
-git push
-```
-Lastly we are going to make our final commit. You will need to do this when your submission is ready for grading.
+Create a dynamic array data class, Vector. You must create your internal array on the heap (using `new`). Your Vector class should have, at minimum, the following:
+* `~Vector()`
+    * A destructor to clean up memory
+* `void insert(int index, Planet * p)`
+    * inserts an element at index, increasing the Vector size by 1
+    * if the insert index is out of bounds, you should increase the capacity to the size of the index
+* `Planet* read(int index)`
+    * returns a pointer to the Planet object at `index`
+    * if the index is out of bounds, return NULL
+* `bool remove(int index)`
+    * remove the Planet object at `index`, decreasing the size of the Vector by 1.
+* `unsigned size()`
+    * returns the current size of the Vector (this may not be the same as the number of elements)
+
+## Part B: Linked Lists
+You must break up your code into List.h and List.cpp according to the conventions we discussed in class. Create a doubly linked list using a List and Node classes. :bulb: Your List and Node classes can go in the same file. Your linked list should have the following operations:
+* `List()`
+    * A pointer to a head and tail node, both initialized to NULL
+* `~List()`
+    * A destructor to clean up memory
+* `void insert(int index, Planet * p)`
+    * inserts an element at index, increasing the List size by 1
+    * if the insert index is out of bounds, you should append to the end of the list
+* `Planet* read(int index)`
+    * returns a pointer to the Planet object at `index`
+    * if the index is out of bounds, return NULL
+* `bool remove(int index)`
+    * remove the Planet object at `index`, decreasing the size of the Vector by 1.
+    * return `true` on successful deletion or `false` if the index is out of bounds
+* `unsigned size()`
+    * returns the current size of the List
+
+## Part C: Full of Stars
+
+Although you should have most of the code written from previous labs. You will need to make slight alterations to your Star class to work with the changes to the Planet class and to work with one of the Data Structures (Vector, List) you have created. You must break up your code into Star.h and Star.cpp according to the conventions we discussed in class.
+
+You will have two Star classes, Starlist and Starvector. You will be using your List and Vector, respectively, as the internal data structure to hold Planets.
+
+#### Starlist
+
+Your Starlist must have the following:
+
+* `Starlist()`
+    * Initialize memory
+* `~Starlist()`
+    * deallocate all memory when the Star is deleted.
+* `long addPlanet()`
+    * return the ID of the newly created Planet
+* `bool removePlanet(long)`
+    * Takes a Planet’s ID as a parameter, and removes the Planet from the Star.
+    * You must return `true` upon successful deletion and `false` on failure if the ID isn't found.
+* `Planet * getPlanet(long)`
+    * Takes a Planet’s ID and returns a pointer to the Planet. If the Planet is not found, it returns NULL.
+* `void orbit()`
+    * Iterate through your planets and alter their orbit position by +1
+* `void printStarInfo()`
+    * Prints the Star information.
+* `unsigned int getCurrentNumPlanets()`
+    * returns the current number of planets stored
+
+#### Starvector
+
+Your Starvector must have the following:
+* `Starvector()`
+    * Initialize memory
+* `~Starvector()`
+    * deallocate all memory when the Star is deleted.
+* `long addPlanet()`
+    * return the ID of the newly created Planet
+* `bool removePlanet(long)`
+    * Takes a Planet’s ID as a parameter, and removes the Planet from the Star.
+    * You must return `true` upon successful deletion and `false` on failure if the ID isn't found.
+* `Planet * getPlanet(long)`
+    * Takes a Planet’s ID and returns a pointer to the Planet. If the Planet is not found, it returns NULL.
+* `void orbit()`
+    * Iterate through your planets and alter their orbit position by +1
+* `void printStarInfo()`
+    * Prints the Star information.
+* `unsigned int getCurrentNumPlanets()`
+    * returns the current number of planets stored (the size of the vector)
+
+## Part D: Profiling
+
+Welcome to the easy part. If you made it this far, you can sit back and relax. I have written some profiling that test the operations for both versions of your Star class.
+
+Pay attention to the output.
+* What implementation is better for insertion?
+* Reading?
+* Overall?
+
+## Part E: Submission
+
+### Required file naming and organization:
+* program1.cpp //Driver Code
+* List.cpp/.h
+* Star.cpp/.h
+* Planet.cpp/.h
+* Vector.cpp/.h
+* makefile
+    * You must have the following labels in your makefile:
+        * all - to compile all your code to an executable called ‘program4’ (no extension). Do not run.
+        * run - to compile if necessary and run
+        * memcheck - to compile only if necessary and run with valgrind
+        * clean - to remove all executables and object files
+
+:no_entry: Every program will have a required submission guidelines. Please read submission requirements carefully. Any deviations from specifications will result in point deductions or incomplete grades.
+
+## README
+
+* KNOWN BUGS AND INCOMPLETE PARTS
+* REFERENCES
+* MISCELLANEOUS COMMENTS
+
+Before your final submission, edit the content for each of these sections in this README for your program. You do not have to use markdown, but you can find out more about markdown [here](https://guides.github.com/features/mastering-markdown/) if you would like to.
+
+### Git
+
+Below is a reminder of the commands you need to use to submit your program.
+
+:warning: You have created several files and even a folder for this program. Be sure you add them to the repo. If you forget to add the files to the repo, your assignment will be considered late or not accepted at all.
 
 ```shell
-git commit --allow-empty -m "final commit"
+git status
+git add mylib.h
+git commit -a -m "commit message"
 git push
 ```
 
-:warning: Remember, you __MUST__ make a submission with the comment "final commit" before the deadline to be considered on time.
+To find your most recent commit hash, use the following command:
+
+```shell
+git rev-parse HEAD
+```    
+
+To complete your submission, you must copy and paste this number into mycourses. Go to MyCourses, select cs240, then program1 under **Assignment Hash Submission**, and where it says text submission, paste your commit hash.
+
+:warning: You __MUST__ submit the commit hash on mycourses before the deadline to be considered on time **even if your program is completely working before the deadline**. :warning:
