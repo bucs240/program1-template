@@ -21,7 +21,7 @@
 ### Driver Code and Test Files
 
 * program1.cpp
-    * include the driver code with your submission, but do not alter it, except where specified by comments
+    * include the driver code with your submission, but do not alter it
 
 ### Grading Rubric
 
