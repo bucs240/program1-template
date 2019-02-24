@@ -92,7 +92,7 @@ Create a dynamic array data class, Vector. You must create your internal array o
     * A destructor to clean up memory
 * `void insert(int index, Planet * p)`
     * inserts an element at index, increasing the Vector size by 1
-    * if the insert index is out of bounds, you should increase the capacity to the size of the index
+    * if the insert index is out of bounds, you should increase the capacity to the size of the index + 1
 * `Planet* read(int index)`
     * returns a pointer to the Planet object at `index`
     * if the index is out of bounds, return NULL
