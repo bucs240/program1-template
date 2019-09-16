@@ -9,7 +9,7 @@ _Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY
 
-Team Members: <team member names>
+Team Members: < team member names >
 
 < Provide a short description of your program's functionality. No more than a couple sentences. >
 
